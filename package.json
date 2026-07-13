@@ -1,0 +1,12 @@
+{
+  "name": "deboistech-website",
+  "version": "1.0.0",
+  "description": "deboistech - Static Company Website",
+  "scripts": {
+    "dev": "tailwindcss -i ./css/style.css -o ./css/output.css --watch",
+    "build": "tailwindcss -i ./css/style.css -o ./css/output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
