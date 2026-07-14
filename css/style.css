@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Mobile-only overrides ── */
+@media (max-width: 639px) {
+  .mobile-nav {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .mobile-logo {
+    height: 1.75rem !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-image-wrap {
+    display: none !important;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -50,15 +67,52 @@
     @apply flex items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400;
   }
 
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile horizontal snap-scroll container */
+  .mobile-scroll {
+    display: grid;
+  }
+  @media (max-width: 767px) {
+    .mobile-scroll {
+      display: flex !important;
+      gap: 2rem !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+    .mobile-scroll::-webkit-scrollbar {
+      display: none !important;
+    }
+    .mobile-scroll > * {
+      width: 85vw !important;
+      flex-shrink: 0 !important;
+      scroll-snap-align: center !important;
+    }
+  }
+
   /* Infinite horizontal scroll (marquee replacement) */
   .scroll-track {
     display: flex;
+    align-items: center;
     animation: scroll-x 40s linear infinite;
     width: max-content;
   }
 
   .scroll-track-reverse {
     display: flex;
+    align-items: center;
     animation: scroll-x-reverse 40s linear infinite;
     width: max-content;
   }
@@ -66,11 +120,18 @@
   .scroll-item {
     flex-shrink: 0;
     margin-right: 4rem;
+    /* Fixed box so every logo appears the same size */
+    width: 120px;
+    height: 48px;
+    object-fit: contain;
   }
 
   .tech-logo {
     filter: grayscale(100%);
     opacity: 0.55;
+    width: 120px;
+    height: 48px;
+    object-fit: contain;
   }
 
   @keyframes scroll-x {

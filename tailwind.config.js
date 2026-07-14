@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{html,js}", "./pages/**/*.{html,js}", "./js/**/*.js"],
+  content: [
+    "./*.{html,js}",
+    "./lib/pages/**/*.{html,js}",
+    "./lib/widgets/**/*.js",
+    "./lib/js/**/*.js",
+    // Legacy paths — kept until old folders are removed
+    "./pages/**/*.{html,js}",
+    "./js/**/*.js",
+  ],
   theme: {
     extend: {
       colors: {
