@@ -27,6 +27,20 @@
   body {
     @apply text-gray-800 antialiased;
   }
+
+  h1 {
+    @apply font-display;
+  }
+
+  code,
+  pre {
+    @apply font-mono;
+  }
+
+  blockquote,
+  q {
+    @apply font-quote;
+  }
 }
 
 @layer components {
