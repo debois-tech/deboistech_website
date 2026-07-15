@@ -144,3 +144,89 @@
     100% { transform: translateX(0); }
   }
 }
+
+@layer components {
+  .blog-field-label {
+    @apply block text-sm font-semibold text-gray-700;
+  }
+
+  .blog-input {
+    @apply mt-2 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary-600 focus:outline-none focus:ring-1 focus:ring-primary-600;
+  }
+
+  .blog-title-input {
+    @apply text-2xl font-bold tracking-normal text-gray-900 sm:text-3xl;
+  }
+
+  .blog-editor-toolbar button {
+    @apply flex h-9 min-w-9 items-center justify-center rounded-md px-2 text-xs font-bold text-gray-600 transition-colors hover:bg-white hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600;
+  }
+
+  .blog-editor-surface {
+    @apply min-h-[520px] w-full bg-white px-5 py-6 text-lg leading-8 text-gray-800 outline-none sm:px-7;
+  }
+
+  .blog-editor-surface:empty::before {
+    content: attr(data-placeholder);
+    @apply text-gray-400;
+  }
+
+  .blog-editor-surface h2,
+  .article-prose h2 {
+    @apply mt-12 text-3xl font-bold tracking-normal text-gray-900;
+  }
+
+  .blog-editor-surface h3,
+  .article-prose h3 {
+    @apply mt-10 text-2xl font-bold tracking-normal text-gray-900;
+  }
+
+  .blog-editor-surface p,
+  .article-prose p {
+    @apply mt-6 text-lg leading-8 text-gray-700;
+  }
+
+  .blog-editor-surface ul,
+  .article-prose ul {
+    @apply mt-6 list-disc space-y-3 pl-6 text-lg leading-8 text-gray-700;
+  }
+
+  .blog-editor-surface ol,
+  .article-prose ol {
+    @apply mt-6 list-decimal space-y-3 pl-6 text-lg leading-8 text-gray-700;
+  }
+
+  .blog-editor-surface blockquote,
+  .article-prose blockquote {
+    @apply mt-10 border-l-4 border-primary-500 pl-6 text-2xl font-medium leading-9 text-gray-800;
+  }
+
+  .blog-editor-surface pre,
+  .article-prose pre {
+    @apply mt-8 overflow-x-auto rounded-xl border border-gray-800 bg-gray-900 p-5 text-sm leading-7 text-gray-100;
+  }
+
+  .blog-editor-surface code,
+  .article-prose code {
+    @apply font-mono;
+  }
+
+  .blog-editor-surface figure,
+  .article-prose figure {
+    @apply mt-10;
+  }
+
+  .blog-editor-surface img,
+  .article-prose img {
+    @apply w-full rounded-xl border border-gray-100;
+  }
+
+  .blog-editor-surface figcaption,
+  .article-prose figcaption {
+    @apply mt-3 text-center text-sm leading-6 text-gray-500;
+  }
+
+  .article-prose a {
+    @apply font-semibold text-primary-700 underline decoration-primary-200 underline-offset-4 hover:text-primary-800;
+  }
+}
