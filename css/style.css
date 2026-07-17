@@ -229,4 +229,13 @@
   .article-prose a {
     @apply font-semibold text-primary-700 underline decoration-primary-200 underline-offset-4 hover:text-primary-800;
   }
+
+  /* Hide scrollbar on the process-steps snap-scroll container (mobile only) */
+  .process-steps-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .process-steps-scroll::-webkit-scrollbar {
+    display: none;
+  }
 }
