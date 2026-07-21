@@ -10,59 +10,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../../images/favicon.png" />
     <link rel="stylesheet" href="../../css/output.css" />
+    <style>
+      @media (max-width: 639px) {
+        .team-scroll::-webkit-scrollbar { display: none; }
+        .team-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+      }
+    </style>
   </head>
   <body>
     <div id="navbar-root"></div>
 
     <main class="pt-20">
-      <section class="px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <section class="px-4 py-12 sm:px-1 sm:py-16 lg:px-8">
         <div class="mx-auto max-w-7xl">
-          <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <p class="text-sm font-semibold uppercase tracking-[0.24em] text-primary-600">About deboistech</p>
-              <h1 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                Software development company in Nashik for serious IT delivery.
-              </h1>
-              <p class="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-                deboistech builds practical IT solutions, ERP-grade products, open-source platforms, and industrial training programs for businesses that need reliable engineering without inflated complexity.
-              </p>
-              <div class="mt-8 flex flex-wrap gap-3">
-                <a href="./contact.html" class="inline-flex items-center rounded-full bg-primary-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-800">
-                  Start a project
-                </a>
-                <a href="./products.html" class="inline-flex items-center rounded-full border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-primary-200 hover:bg-primary-50 hover:text-primary-700">
-                  View products
-                </a>
-              </div>
-            </div>
-
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                <p class="text-3xl font-bold text-gray-900">IT</p>
-                <p class="mt-2 text-sm leading-6 text-gray-600">Complete software, cloud, automation, and digital operations support.</p>
-              </div>
-              <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                <p class="text-3xl font-bold text-gray-900">ERP</p>
-                <p class="mt-2 text-sm leading-6 text-gray-600">Business-grade products designed for workflows, reporting, and scale.</p>
-              </div>
-              <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                <p class="text-3xl font-bold text-gray-900">OSS</p>
-                <p class="mt-2 text-sm leading-6 text-gray-600">Open-source products, transparent engineering, and reusable platforms.</p>
-              </div>
-              <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                <p class="text-3xl font-bold text-gray-900">Training</p>
-                <p class="mt-2 text-sm leading-6 text-gray-600">Industrial training programs for students and teams entering real projects.</p>
-              </div>
-            </div>
+          <div class="max-w-3xl">
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-primary-600">About deboistech</p>
+            <h1 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+              Software development company in Nashik for serious IT delivery.
+            </h1>
           </div>
         </div>
       </section>
 
-      <section class="bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
+      <section class="bg-gray-50 px-4 py-8 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-7xl">
           <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <h2 class="text-3xl font-bold tracking-tight text-gray-900">What we do</h2>
+              <h2 class="text-3xl font-bold tracking-tight text-gray-900">What we do?</h2>
               <p class="mt-4 text-base leading-7 text-gray-600">
                 We work across the full IT stack: strategy, design, development, deployment, maintenance, and training. Our focus stays on usable systems that help teams move faster.
               </p>
@@ -89,21 +63,161 @@
         </div>
       </section>
 
+      <!-- ===== MEET THE TEAM ===== -->
+      <section class="px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-12 text-center">
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-primary-600">Our People</p>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet the Team</h2>
+            <p class="mx-auto mt-4 max-w-xl text-base leading-7 text-gray-500">The driven individuals behind every solution we build.</p>
+          </div>
+          <div class="team-scroll flex flex-nowrap sm:flex-wrap overflow-x-auto snap-x snap-mandatory sm:justify-center gap-8 sm:gap-16">
+
+            <!-- Omkar Kokane -->
+            <div class="group flex flex-col items-center text-center snap-center flex-shrink-0 w-[85vw] sm:w-auto">
+              <a href="https://www.linkedin.com/in/omkar-kokane/" target="_blank" rel="noopener noreferrer" class="block">
+                <div class="relative h-32 w-32 overflow-hidden rounded-full shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105">
+                  <img src="../../images/employee/omkar.jpeg" alt="Omkar Kokane" width="1600" height="1600" loading="lazy" class="h-full w-full object-cover">
+                </div>
+              </a>
+              <h3 class="mt-4 text-base font-bold text-gray-900">Omkar Kokane</h3>
+              <p class="mt-1 text-sm font-medium text-primary-600">CEO</p>
+            </div>
+
+            <!-- Aditya Bankar -->
+            <div class="group flex flex-col items-center text-center snap-center flex-shrink-0 w-[85vw] sm:w-auto">
+              <a href="https://www.linkedin.com/in/adityabankar21/" target="_blank" rel="noopener noreferrer" class="block">
+                <div class="relative h-32 w-32 overflow-hidden rounded-full shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105">
+                  <img src="../../images/employee/aditya.PNG" alt="Aditya Bankar" width="1023" height="1023" loading="lazy" class="h-full w-full object-cover">
+                </div>
+              </a>
+              <h3 class="mt-4 text-base font-bold text-gray-900">Aditya Bankar</h3>
+              <p class="mt-1 text-sm font-medium text-primary-600">CTO</p>
+            </div>
+
+            <!-- Yash Pawar -->
+            <div class="group flex flex-col items-center text-center snap-center flex-shrink-0 w-[85vw] sm:w-auto">
+              <a href="https://www.linkedin.com/in/yash-pawar-862702287/" target="_blank" rel="noopener noreferrer" class="block">
+                <div class="relative h-32 w-32 overflow-hidden rounded-full shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105">
+                  <img src="../../images/employee/yash.jpeg" alt="Yash Pawar" width="3072" height="4080" loading="lazy" class="h-full w-full object-cover">
+                </div>
+              </a>
+              <h3 class="mt-4 text-base font-bold text-gray-900">Yash Pawar</h3>
+              <p class="mt-1 text-sm font-medium text-primary-600">DevOps Engineer</p>
+            </div>
+
+            <!-- Vedant Wagh -->
+            <div class="group flex flex-col items-center text-center snap-center flex-shrink-0 w-[85vw] sm:w-auto">
+              <a href="https://www.linkedin.com/in/vedantwagh1405/" target="_blank" rel="noopener noreferrer" class="block">
+                <div class="relative h-32 w-32 overflow-hidden rounded-full shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105">
+                  <img src="../../images/employee/vedant.jpeg" alt="Vedant Wagh" width="1425" height="1600" loading="lazy" class="h-full w-full object-cover">
+                </div>
+              </a>
+              <h3 class="mt-4 text-base font-bold text-gray-900">Vedant Wagh</h3>
+              <p class="mt-1 text-sm font-medium text-primary-600 flex flex-col items-center gap-0.5">
+                <span>Software Development</span>
+                <span>Engineer</span>
+              </p>
+            </div>
+
+            <!-- Sakshi Dhatrak -->
+            <div class="group flex flex-col items-center text-center snap-center flex-shrink-0 w-[85vw] sm:w-auto">
+              <a href="https://www.linkedin.com/in/sakshidhatrak/" target="_blank" rel="noopener noreferrer" class="block">
+                <div class="relative h-32 w-32 overflow-hidden rounded-full shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105">
+                  <img src="../../images/employee/sakshi.jpeg" alt="Sakshi Dhatrak" width="672" height="667" loading="lazy" class="h-full w-full object-cover">
+                </div>
+              </a>
+              <h3 class="mt-4 text-base font-bold text-gray-900">Sakshi Dhatrak</h3>
+              <p class="mt-1 text-sm font-medium text-primary-600">ML Engineer</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <section class="px-4 py-16 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-7xl">
           <div class="rounded-3xl bg-primary-900 p-8 text-white sm:p-10 lg:p-12">
-            <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+            <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
               <div>
-                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Built in Nashik. Ready for global delivery.</h2>
-                <p class="mt-5 max-w-3xl text-base leading-7 text-primary-100">
-                  Businesses looking for the best software development company in Nashik need more than a vendor. They need a technical partner that can design, ship, operate, and improve complete IT solutions. deboistech brings that product mindset to every engagement.
-                </p>
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
+                <div class="mt-5 space-y-4">
+                  <p class="text-base leading-7 text-primary-100">
+                    deboistech is a technology company that combines software engineering, product development, cloud technologies, AI, and creative design services. We work with startups, SMEs, educational institutions, and enterprises to build scalable digital products and business solutions.
+                  </p>
+                </div>
+                <a href="./faq.html"
+                  class="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-primary-50 transition-all hover:bg-white/20">
+                  Read more FAQs &rarr;
+                </a>
               </div>
-              <div class="grid gap-3 text-sm font-semibold text-primary-50">
-                <div class="rounded-2xl bg-white/10 px-5 py-4">Software development in Nashik</div>
-                <div class="rounded-2xl bg-white/10 px-5 py-4">ERP and business platforms</div>
-                <div class="rounded-2xl bg-white/10 px-5 py-4">Cloud, DevOps, and automation</div>
-                <div class="rounded-2xl bg-white/10 px-5 py-4">Industrial IT training programs</div>
+              <div id="faq-section">
+                <div class="faq-item border-b border-white/10 border-t">
+                  <button class="faq-trigger flex w-full cursor-pointer items-center justify-between px-0 py-5 text-left text-sm font-semibold text-primary-50">
+                    <span>What services does deboistech offer?</span>
+                    <svg class="faq-vert h-4 w-4 shrink-0 text-white/50 transition-transform duration-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300" style="max-height: 0;">
+                    <div class="pb-5 text-sm leading-6 text-primary-200">
+                      We provide end-to-end technology solutions, including:
+                      - Website Development
+                      - Mobile App Development
+                      - Custom Software Development
+                      - AI & Machine Learning Solutions
+                      - ERP Development
+                      - CRM Development
+                      - UI/UX Design
+                      - Graphic Design & Branding
+                      - SEO Services
+                      - GEO (Generative Engine Optimization)
+                      - DevOps & Cloud Solutions
+                      - SaaS Product Development
+                      - API Development & Integrations
+                      - Website Maintenance & Support
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item border-b border-white/10">
+                  <button class="faq-trigger flex w-full cursor-pointer items-center justify-between px-0 py-5 text-left text-sm font-semibold text-primary-50">
+                    <span>Where is deboistech located?</span>
+                    <svg class="faq-vert h-4 w-4 shrink-0 text-white/50 transition-transform duration-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300" style="max-height: 0;">
+                    <div class="pb-5 text-sm leading-6 text-primary-200">
+                      deboistech is based in Nashik, Maharashtra, and serves clients across India and internationally through remote collaboration and online project delivery.
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item border-b border-white/10">
+                  <button class="faq-trigger flex w-full cursor-pointer items-center justify-between px-0 py-5 text-left text-sm font-semibold text-primary-50">
+                    <span>Do you work with clients outside Nashik?</span>
+                    <svg class="faq-vert h-4 w-4 shrink-0 text-white/50 transition-transform duration-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300" style="max-height: 0;">
+                    <div class="pb-5 text-sm leading-6 text-primary-200">
+                      Yes. Although we are headquartered in Nashik, we work with businesses, startups, educational institutions, and organizations across India and overseas.
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item border-b border-white/10">
+                  <button class="faq-trigger flex w-full cursor-pointer items-center justify-between px-0 py-5 text-left text-sm font-semibold text-primary-50">
+                    <span>Why should I choose deboistech?</span>
+                    <svg class="faq-vert h-4 w-4 shrink-0 text-white/50 transition-transform duration-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300" style="max-height: 0;">
+                    <div class="pb-5 text-sm leading-6 text-primary-200">
+                      We focus on understanding business problems before writing code. Our team combines technical expertise, modern technologies, user-centric design, and scalable architecture to deliver reliable digital solutions tailored to each client's goals.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -112,6 +226,7 @@
     </main>
 
     <div id="footer-root"></div>
+    <script src="../widgets/faq-accordion.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/main.js"></script>
   </body>

@@ -18,13 +18,13 @@
 
 ### Flutter vs NextJS Equivalent
 
-| Flutter Layer | NextJS Equivalent | What it does |
-|---|---|---|
-| **DB** | Supabase (PostgreSQL) | The database itself |
-| **Model** | TypeScript types (`lib/types.ts`) | Shape definitions for every entity |
-| **Controller** | **Server Components** + **Server Actions** + **lib/queries.ts** | Fetching data, writing data, business logic — runs on server, never reaches client |
-| **Provider** | **React Server Components** (inherent) + **React Context** (for auth only) | Server Components *are* the data provider — they fetch and pass data down. No global state library needed. Client-side state only for auth session. |
-| **Frontend** | React Components (Server + Client) | Renders UI |
+| Flutter Layer  | NextJS Equivalent                                                          | What it does                                                                                                                                        |
+| -------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DB**         | Supabase (PostgreSQL)                                                      | The database itself                                                                                                                                 |
+| **Model**      | TypeScript types (`lib/types.ts`)                                          | Shape definitions for every entity                                                                                                                  |
+| **Controller** | **Server Components** + **Server Actions** + **lib/queries.ts**            | Fetching data, writing data, business logic — runs on server, never reaches client                                                                  |
+| **Provider**   | **React Server Components** (inherent) + **React Context** (for auth only) | Server Components _are_ the data provider — they fetch and pass data down. No global state library needed. Client-side state only for auth session. |
+| **Frontend**   | React Components (Server + Client)                                         | Renders UI                                                                                                                                          |
 
 ### Data Fetching Flow
 
@@ -100,13 +100,13 @@ components/
 
 **Only 3 domain tables** + supporting tables.
 
-| Table | Purpose |
-|---|---|
-| `profiles` | Synced from OAuth login — stores name, avatar, role |
-| `blog_posts` | All blog content — published + drafts |
-| `projects` | Products/portfolio items (currently hardcoded in `product-card.js`) |
-| `blog_stats` | View/read/like/share counters per post |
-| `contact_messages` | (Optional) Contact form submissions |
+| Table              | Purpose                                                             |
+| ------------------ | ------------------------------------------------------------------- |
+| `profiles`         | Synced from OAuth login — stores name, avatar, role                 |
+| `blog_posts`       | All blog content — published + drafts                               |
+| `projects`         | Products/portfolio items (currently hardcoded in `product-card.js`) |
+| `blog_stats`       | View/read/like/share counters per post                              |
+| `contact_messages` | (Optional) Contact form submissions                                 |
 
 Everything else stays as hardcoded data in components (solutions, services, tech logos, process steps, careers, team info).
 
@@ -380,18 +380,18 @@ CREATE POLICY "contact_admin_read"    ON contact_messages FOR SELECT USING (auth
 
 ## Effort Summary
 
-| Phase | Time |
-|---|---|
-| 0 — Deploy current site | 1 hr |
-| 1 — NextJS scaffold | 2–4 hrs |
+| Phase                                     | Time     |
+| ----------------------------------------- | -------- |
+| 0 — Deploy current site                   | 1 hr     |
+| 1 — NextJS scaffold                       | 2–4 hrs  |
 | 2 — Layout, types, queries, 15 components | 2–3 days |
-| 3 — Migrate 9 pages | 2 days |
-| 4 — Supabase schema + seed | 1 day |
-| 5 — OAuth + protected routes | 1 day |
-| 6 — Blog CRUD + studio | 2–3 days |
-| 7 — Projects from DB | 4–6 hrs |
-| 8 — Contact form | 2–4 hrs |
-| 9 — SEO / sitemap / polish | 1 day |
-| 10 — Deploy | 2–4 hrs |
+| 3 — Migrate 9 pages                       | 2 days   |
+| 4 — Supabase schema + seed                | 1 day    |
+| 5 — OAuth + protected routes              | 1 day    |
+| 6 — Blog CRUD + studio                    | 2–3 days |
+| 7 — Projects from DB                      | 4–6 hrs  |
+| 8 — Contact form                          | 2–4 hrs  |
+| 9 — SEO / sitemap / polish                | 1 day    |
+| 10 — Deploy                               | 2–4 hrs  |
 
 **Total: ~10–14 days full-time.**

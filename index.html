@@ -24,8 +24,12 @@
     <section class="relative overflow-hidden bg-white px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="grid items-center gap-12 lg:grid-cols-2">
-          <!-- left text -->
-          <div>
+          <!-- Hero image (shown first on mobile, right side on desktop) -->
+          <div class="hero-image-wrap aspect-[4/3] w-full lg:aspect-auto lg:h-[480px] lg:order-2">
+            <img src="images/hero.png" alt="deboistech logo" class="h-full w-full object-cover rounded-xl shadow-lg" />
+          </div>
+          <!-- Hero text (shown below image on mobile, left side on desktop) -->
+          <div class="lg:order-1">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
               Building Solutions.<br />
               <span class="text-primary-600">Empowering Futures.</span>
@@ -38,11 +42,6 @@
               <a href="lib/pages/services.html" class="btn-primary">Explore Our Services →</a>
               <a href="#" class="btn-secondary">View Our Work ▶</a>
             </div>
-
-          </div>
-          <!-- right hero image (hidden on mobile) -->
-          <div class="hero-image-wrap aspect-[4/3] w-full lg:aspect-auto lg:h-[500px]">
-            <img src="images/hero.png" alt="DeboisTech logo" class="h-full w-full object-contain" />
           </div>
         </div>
       </div>
@@ -74,13 +73,13 @@
           <div class="relative">
             <div class="grid grid-cols-2 gap-4">
               <div class="aspect-square overflow-hidden rounded-2xl">
-                <img src="images/teams/1.png" alt="Team Photo 1" class="h-full w-full object-cover" />
+                <img src="images/teams/1.jpeg" alt="Team Photo 1" class="h-full w-full object-cover" />
               </div>
               <div class="mt-8 aspect-square overflow-hidden rounded-2xl">
                 <img src="images/teams/2.png" alt="Team Photo 2" class="h-full w-full object-cover" />
               </div>
               <div class="-mt-4 aspect-square overflow-hidden rounded-2xl">
-                <img src="images/teams/3.png" alt="Team Photo 3" class="h-full w-full object-cover" />
+                <img src="images/teams/3.jpeg" alt="Team Photo 3" class="h-full w-full object-cover" />
               </div>
             </div>
           </div>

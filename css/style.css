@@ -1,8 +1,75 @@
+/* =============================================================
+   css/style.css — deboistech.in
+   Single source of truth for all design tokens.
+
+   STRUCTURE
+   ─────────
+   1. Design Tokens   (:root CSS custom properties)
+   2. Tailwind base directives
+   3. Media overrides
+   4. @layer base     (html/body defaults)
+   5. @layer components — core UI
+   6. @layer components — blog/editor
+   7. @layer components — service cards & tier tabs
+   ============================================================= */
+
+/* ── 1. DESIGN TOKENS ─────────────────────────────────────────
+   Everything lives here. Change a value once → updates everywhere.
+   ─────────────────────────────────────────────────────────── */
+:root {
+  /* Brand — primary green (matches tailwind.config.js primary palette) */
+  --clr-primary:          #059669;   /* primary-600  */
+  --clr-primary-hover:    #047857;   /* primary-700  */
+  --clr-primary-50:       #ecfdf5;
+  --clr-primary-100:      #d1fae5;
+  --clr-primary-900:      #064e3b;
+
+  /* Primary tints (used for backgrounds & borders) */
+  --clr-primary-tint-xs:  rgba(5, 150, 105, 0.06);
+  --clr-primary-tint-sm:  rgba(5, 150, 105, 0.08);
+  --clr-primary-tint-md:  rgba(5, 150, 105, 0.10);
+  --clr-primary-tint-lg:  rgba(5, 150, 105, 0.15);
+  --clr-primary-border:   rgba(5, 150, 105, 0.30);
+
+  /* Text */
+  --clr-text-heading:     #111827;   /* gray-900 */
+  --clr-text-body:        #1F2937;   /* gray-800 */
+  --clr-text-muted:       #6B7280;   /* gray-500 */
+  --clr-text-subtle:      #374151;   /* gray-700 */
+
+  /* Surfaces & borders */
+  --clr-surface:          #ffffff;
+  --clr-surface-raised:   #F9FAFB;   /* gray-50  */
+  --clr-border:           #E5E7EB;   /* gray-200 */
+  --clr-divider:          #F3F4F6;   /* gray-100 */
+
+  /* Shadow */
+  --shadow-card-hover:    0 8px 32px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-sans:            'Inter', system-ui, sans-serif;
+  --font-mono:            'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Border radius */
+  --radius-sm:            8px;
+  --radius-md:            10px;
+  --radius-card:          14px;
+  --radius-lg:            16px;
+  --radius-xl:            20px;
+  --radius-pill:          9999px;
+
+  /* Transitions */
+  --transition-fast:      0.2s ease;
+  --transition-base:      0.25s ease;
+  --transition-reveal:    0.6s ease-out;
+}
+
+/* ── 2. TAILWIND BASE DIRECTIVES ──────────────────────────── */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Mobile-only overrides ── */
+/* ── 3. MEDIA OVERRIDES (not inside a layer — global) ─────── */
 @media (max-width: 639px) {
   .mobile-nav {
     padding-top: 0.5rem !important;
@@ -13,23 +80,21 @@
   }
 }
 
-@media (max-width: 1023px) {
-  .hero-image-wrap {
-    display: none !important;
-  }
-}
-
+/* ── 4. @layer base ───────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
+    font-family: var(--font-sans);
     @apply text-gray-800 antialiased;
   }
 }
 
+/* ── 5. @layer components — core UI ──────────────────────── */
 @layer components {
+  /* Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600;
   }
@@ -38,6 +103,7 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-primary-600 hover:text-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600;
   }
 
+  /* Typography helpers */
   .eyebrow {
     @apply mb-4 inline-block text-xs font-bold uppercase tracking-widest text-primary-600;
   }
@@ -50,10 +116,12 @@
     @apply mt-4 max-w-2xl text-lg leading-8 text-gray-500;
   }
 
+  /* Generic card */
   .card {
     @apply rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md;
   }
 
+  /* Check list item */
   .check-item {
     @apply flex items-start gap-2 text-sm text-gray-600;
   }
@@ -63,15 +131,16 @@
     @apply mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-600;
   }
 
+  /* Placeholder box */
   .placeholder-box {
     @apply flex items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400;
   }
 
-  /* Scroll reveal */
+  /* Scroll reveal animation */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity var(--transition-reveal), transform var(--transition-reveal);
   }
 
   .reveal.revealed {
@@ -79,7 +148,7 @@
     transform: translateY(0);
   }
 
-  /* Mobile horizontal snap-scroll container */
+  /* Mobile horizontal snap-scroll */
   .mobile-scroll {
     display: grid;
   }
@@ -102,7 +171,7 @@
     }
   }
 
-  /* Infinite horizontal scroll (marquee replacement) */
+  /* Infinite horizontal logo scroll */
   .scroll-track {
     display: flex;
     align-items: center;
@@ -120,7 +189,6 @@
   .scroll-item {
     flex-shrink: 0;
     margin-right: 4rem;
-    /* Fixed box so every logo appears the same size */
     width: 120px;
     height: 48px;
     object-fit: contain;
@@ -135,16 +203,17 @@
   }
 
   @keyframes scroll-x {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
   @keyframes scroll-x-reverse {
-    0% { transform: translateX(-50%); }
+    0%   { transform: translateX(-50%); }
     100% { transform: translateX(0); }
   }
 }
 
+/* ── 6. @layer components — blog / editor ─────────────────── */
 @layer components {
   .blog-field-label {
     @apply block text-sm font-semibold text-gray-700;
@@ -208,6 +277,7 @@
 
   .blog-editor-surface code,
   .article-prose code {
+    font-family: var(--font-mono);
     @apply font-mono;
   }
 
@@ -228,5 +298,301 @@
 
   .article-prose a {
     @apply font-semibold text-primary-700 underline decoration-primary-200 underline-offset-4 hover:text-primary-800;
+  }
+
+  /* Process steps — hide scrollbar (mobile snap-scroll) */
+  .process-steps-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .process-steps-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── 7. @layer components — service cards & tier tabs ────────
+   All colour/radius/shadow values reference :root tokens above.
+   To retheme, update :root only.
+   ─────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* ── Service card ── */
+  .svc-card {
+    background:    var(--clr-surface);
+    border:        1px solid var(--clr-border);
+    border-radius: var(--radius-card);
+    padding:       1.75rem;
+    display:       flex;
+    flex-direction: column;
+    transition:    box-shadow var(--transition-base),
+                   border-color var(--transition-base),
+                   transform var(--transition-base);
+    position:      relative;
+    overflow:      hidden;
+  }
+
+  /* Accent stripe — slides in on hover */
+  .svc-card::before {
+    content:       "";
+    position:      absolute;
+    top: 0; left: 0; right: 0;
+    height:        3px;
+    background:    var(--clr-primary);
+    opacity:       0;
+    transition:    opacity var(--transition-base);
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+  }
+
+  .svc-card:hover {
+    box-shadow:    var(--shadow-card-hover);
+    border-color:  var(--clr-primary-border);
+    transform:     translateY(-2px);
+  }
+
+  .svc-card:hover::before { opacity: 1; }
+
+  .svc-card__header {
+    display:       flex;
+    align-items:   center;
+    gap:           0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .svc-card__icon-wrap {
+    flex-shrink:   0;
+    width:         44px;
+    height:        44px;
+    border-radius: var(--radius-md);
+    background:    var(--clr-primary-tint-md);
+    display:       flex;
+    align-items:   center;
+    justify-content: center;
+    color:         var(--clr-primary);
+    transition:    background var(--transition-base);
+  }
+
+  .svc-card:hover .svc-card__icon-wrap {
+    background: var(--clr-primary-tint-lg);
+  }
+
+  .svc-card__icon {
+    width:  22px;
+    height: 22px;
+    color:  var(--clr-primary);
+  }
+
+  .svc-card__title {
+    font-size:   1.0625rem;
+    font-weight: 700;
+    color:       var(--clr-text-heading);
+    line-height: 1.3;
+  }
+
+  .svc-card__divider {
+    height:        1px;
+    background:    var(--clr-divider);
+    margin-bottom: 1rem;
+  }
+
+  .svc-card__problem {
+    font-size:     0.8125rem;
+    color:         var(--clr-text-muted);
+    line-height:   1.6;
+    font-style:    italic;
+    margin-bottom: 0.875rem;
+  }
+
+  .svc-card__solution {
+    font-size:     0.875rem;
+    color:         var(--clr-text-body);
+    line-height:   1.65;
+    margin-bottom: 1.25rem;
+    flex:          1;
+  }
+
+  .svc-card__arrow {
+    color:        var(--clr-primary);
+    font-weight:  700;
+    margin-right: 0.25rem;
+  }
+
+  .svc-card__cta {
+    display:         inline-flex;
+    align-items:     center;
+    font-size:       0.8125rem;
+    font-weight:     600;
+    color:           var(--clr-primary);
+    text-decoration: none;
+    transition:      opacity var(--transition-fast),
+                     letter-spacing var(--transition-fast);
+    margin-top:      auto;
+  }
+
+  .svc-card__cta:hover {
+    opacity:        0.75;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Cards grid ── */
+  .svc-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1023px) {
+    .svc-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 639px) {
+    .svc-cards-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Tier tab selector ── */
+  .svc-tier-tabs {
+    display:       flex;
+    gap:           0.75rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--clr-border);
+  }
+
+  @media (max-width: 639px) {
+    .svc-tier-tabs {
+      /* Keep row layout — tabs side by side */
+      flex-direction: row;
+      gap:            0;
+      margin-bottom:  0;            /* panel connects flush below the tab bar */
+      border-bottom:  1px solid var(--clr-border);
+      overflow-x:     auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .svc-tier-tabs::-webkit-scrollbar { display: none; }
+  }
+
+  .svc-tier-tab {
+    display:        flex;
+    flex-direction: column;
+    align-items:    flex-start;
+    gap:            0.25rem;
+    padding:        0.875rem 1.5rem;
+    background:     none;
+    border:         none;
+    border-bottom:  3px solid transparent;
+    cursor:         pointer;
+    opacity:        0.5;
+    transition:     opacity var(--transition-fast),
+                    border-color var(--transition-fast),
+                    background var(--transition-fast);
+    border-radius:  var(--radius-md) var(--radius-md) 0 0;
+    text-align:     left;
+    flex:           1;
+  }
+
+  @media (max-width: 639px) {
+    .svc-tier-tab {
+      /* Compact tab — centred label, no hook text */
+      border-radius: 0;
+      border-bottom: 3px solid transparent;  /* underline indicator */
+      border-left:   none;
+      padding:       0.625rem 0.5rem;
+      align-items:   center;
+      text-align:    center;
+      flex:          1;
+      min-width:     0;
+    }
+  }
+
+  .svc-tier-tab:hover {
+    opacity:    0.85;
+    background: var(--clr-primary-tint-xs);
+  }
+
+  .svc-tier-tab--active {
+    opacity:            1;
+    border-bottom-color: var(--clr-primary);
+    background:         var(--clr-primary-tint-sm);
+  }
+
+  @media (max-width: 639px) {
+    /* Active: green underline, no left border */
+    .svc-tier-tab--active {
+      border-bottom-color: var(--clr-primary);
+    }
+  }
+
+  .svc-tier-tab__label {
+    font-size:   1rem;
+    font-weight: 700;
+    color:       var(--clr-text-heading);
+  }
+
+  .svc-tier-tab--active .svc-tier-tab__label {
+    color: var(--clr-primary);
+  }
+
+  .svc-tier-tab__hook {
+    font-size:   0.78125rem;
+    color:       var(--clr-text-muted);
+    font-weight: 400;
+  }
+
+  /* Hide hook subtitle on mobile — not enough room next to 2 siblings */
+  @media (max-width: 639px) {
+    .svc-tier-tab__hook { display: none; }
+  }
+
+  /* ── Tier panels ── */
+  .svc-tier-panels { position: relative; }
+
+  /* On mobile the panel sits flush under the tab bar */
+  @media (max-width: 639px) {
+    .svc-tier-panels { padding-top: 1.5rem; }
+  }
+
+  .svc-tier-panel {
+    display:   none;
+    animation: tier-fade-in 0.3s ease-out;
+  }
+
+  .svc-tier-panel--active { display: block; }
+
+  @keyframes tier-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Services CTA strip ── */
+  .svc-cta-strip {
+    margin-top:      3rem;
+    background:      var(--clr-surface-raised);
+    border:          1px solid var(--clr-border);
+    border-radius:   var(--radius-lg);
+    padding:         2rem 2.5rem;
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    gap:             2rem;
+  }
+
+  @media (max-width: 767px) {
+    .svc-cta-strip {
+      flex-direction: column;
+      text-align:     center;
+      padding:        1.5rem;
+    }
+  }
+
+  .svc-cta-strip__heading {
+    font-size:     1.125rem;
+    font-weight:   700;
+    color:         var(--clr-text-heading);
+    margin-bottom: 0.25rem;
+  }
+
+  .svc-cta-strip__body {
+    font-size:   0.9375rem;
+    color:       var(--clr-text-muted);
+    line-height: 1.6;
   }
 }
