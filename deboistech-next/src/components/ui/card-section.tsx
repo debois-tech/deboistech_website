@@ -1,0 +1,2 @@
+import type { ReactNode } from "react";
+export function CardSection({ title, subtitle, children, className = "" }: { title: string; subtitle?: string; children: ReactNode; className?: string }) { return <section className={`px-4 py-20 sm:px-6 sm:py-28 lg:px-8 ${className}`}><div className="mx-auto max-w-7xl"><div className="text-center"><h2 className="section-heading">{title}</h2>{subtitle && <p className="section-subheading mx-auto">{subtitle}</p>}</div><div className="mt-16 grid gap-8 md:grid-cols-3">{children}</div></div></section>; }

@@ -424,7 +424,7 @@ Tailwind v4 uses **CSS-first configuration** — no more `tailwind.config.js`. A
 
 ### 2.1 Root Layout
 
-- [ ] **2.1.1** Create `src/app/layout.tsx`:
+- [x] **2.1.1** Create `src/app/layout.tsx`:
   - Import Inter font via `next/font/google`
   - Export `metadata` object (site title, description, OG)
   - Wrap children in `<html>` + `<body>` with font classes
@@ -433,7 +433,7 @@ Tailwind v4 uses **CSS-first configuration** — no more `tailwind.config.js`. A
 
 ### 2.2 TypeScript Types (`lib/types.ts`)
 
-- [ ] **2.2.1** Create `src/lib/types.ts`:
+- [x] **2.2.1** Create `src/lib/types.ts`:
 
 ```typescript
 // ── Domain Union ──
@@ -528,7 +528,7 @@ export interface ContactMessage {
 
 #### 2.3.1 Supabase Clients
 
-- [ ] **2.3.1a** Create `src/lib/supabase/client.ts` — Browser client:
+- [x] **2.3.1a** Create `src/lib/supabase/client.ts` — Browser client:
 
 ```typescript
 import { createBrowserClient } from '@supabase/ssr'
@@ -541,7 +541,7 @@ export function createClient() {
 }
 ```
 
-- [ ] **2.3.1b** Create `src/lib/supabase/server.ts` — Server client:
+- [x] **2.3.1b** Create `src/lib/supabase/server.ts` — Server client:
 
 ```typescript
 import { createServerClient } from '@supabase/ssr'
@@ -569,7 +569,7 @@ export async function createClient() {
 }
 ```
 
-- [ ] **2.3.1c** Create `src/lib/supabase/middleware.ts` — Middleware client:
+- [x] **2.3.1c** Create `src/lib/supabase/middleware.ts` — Middleware client:
 
 ```typescript
 import { createServerClient } from '@supabase/ssr'
@@ -606,7 +606,7 @@ export async function updateSession(request: NextRequest) {
 
 #### 2.3.2 Query Modules
 
-- [ ] **2.3.2a** Create `src/lib/queries/blog.ts`:
+- [x] **2.3.2a** Create `src/lib/queries/blog.ts`:
 
 ```typescript
 import { createClient } from '@/lib/supabase/server'
@@ -653,7 +653,7 @@ export async function getAllSlugs(): Promise<string[]> {
 }
 ```
 
-- [ ] **2.3.2b** Create `src/lib/queries/projects.ts`:
+- [x] **2.3.2b** Create `src/lib/queries/projects.ts`:
 
 ```typescript
 import { createClient } from '@/lib/supabase/server'
@@ -697,7 +697,7 @@ export async function getAllProjectSlugs(): Promise<string[]> {
 }
 ```
 
-- [ ] **2.3.2c** Create `src/lib/queries/profiles.ts`:
+- [x] **2.3.2c** Create `src/lib/queries/profiles.ts`:
 
 ```typescript
 import { createClient } from '@/lib/supabase/server'
@@ -726,7 +726,7 @@ export async function upsertProfile(profile: Partial<Profile> & { id: string }):
 
 #### 2.3.3 Action Modules
 
-- [ ] **2.3.3a** Create `src/lib/actions/blog.ts`:
+- [x] **2.3.3a** Create `src/lib/actions/blog.ts`:
 
 ```typescript
 'use server'
@@ -792,7 +792,7 @@ export async function deletePost(formData: FormData) {
 }
 ```
 
-- [ ] **2.3.3b** Create `src/lib/actions/projects.ts`:
+- [x] **2.3.3b** Create `src/lib/actions/projects.ts`:
 
 ```typescript
 'use server'
@@ -836,7 +836,7 @@ function createServiceClient() {
 }
 ```
 
-- [ ] **2.3.3c** Create `src/lib/actions/auth.ts`:
+- [x] **2.3.3c** Create `src/lib/actions/auth.ts`:
 
 ```typescript
 'use server'
@@ -862,7 +862,7 @@ export async function signOut() {
 }
 ```
 
-- [ ] **2.3.3d** Create `src/lib/actions/contact.ts` (if using Supabase for contact form):
+- [x] **2.3.3d** Create `src/lib/actions/contact.ts` (if using Supabase for contact form):
 
 ```typescript
 'use server'
@@ -894,32 +894,32 @@ Each component should be ported from the existing vanilla JS to a React componen
 
 #### 2.4.1 Layout Components
 
-- [ ] **2.4.1a** Port `Navbar` from `lib/js/components.js`:
+- [x] **2.4.1a** Port `Navbar` from `lib/js/components.js`:
   - Client component (`'use client'`) — needs state for mobile menu toggle
   - Sticky top nav, hamburger menu on mobile, "Let's Talk" CTA button
   - Use `next/link` for all internal links
   - Show login/avatar conditionally based on auth session (from AuthProvider context)
 
-- [ ] **2.4.1b** Port `Footer` from `lib/js/components.js`:
+- [x] **2.4.1b** Port `Footer` from `lib/js/components.js`:
   - Server Component (no interactivity needed)
   - 4-column grid: links, technologies, services, socials
   - Copyright notice with current year
 
 #### 2.4.2 Blog Components
 
-- [ ] **2.4.2a** Port `BlogCard` from `lib/widgets/blog-card.js`:
+- [x] **2.4.2a** Port `BlogCard` from `lib/widgets/blog-card.js`:
   - Server Component
   - Props: `post: BlogPost`
   - Renders: thumbnail, domain badge, title, description, author row, date
   - Wraps in `next/link` → `/blogs/${post.slug}`
 
-- [ ] **2.4.2b** Port `BlogSections` from `lib/widgets/blog-sections.js`:
+- [x] **2.4.2b** Port `BlogSections` from `lib/widgets/blog-sections.js`:
   - Server Component
   - Fetches published posts grouped by domain
   - Renders domain tabs/sections with grid of `BlogCard` components
   - Remove the old passphrase-modal logic (replaced by login-modal in Phase 5)
 
-- [ ] **2.4.2c** Port `BlogDetail` from `lib/widgets/blog-detail.js`:
+- [x] **2.4.2c** Port `BlogDetail` from `lib/widgets/blog-detail.js`:
   - Client Component (needs read-progress, like/share interaction)
   - Props: `post: BlogPost`
   - Renders full article body from `post.body` (map over `BlogBlock[]`)
@@ -927,34 +927,34 @@ Each component should be ported from the existing vanilla JS to a React componen
   - Like/Share buttons that call `increment_blog_stat` via Supabase client
   - Not found handling
 
-- [ ] **2.4.2d** Port `BlogStudio` from `lib/widgets/blog-detail.js`:
+- [x] **2.4.2d** Port `BlogStudio` from `lib/widgets/blog-detail.js`:
   - Client Component (rich editor, auto-save, publish)
   - Full-screen editor with title, slug, domain picker, tags, blocks editor
   - Auto-save with 1.5s debounce via `useEffect` + `setTimeout`
   - Publish/save draft/delete buttons
   - Image upload (picker → Supabase Storage)
 
-- [ ] **2.4.2e** Create `BlogStats` component:
+- [x] **2.4.2e** Create `BlogStats` component:
   - Client Component
   - Displays likes, views, reads, shares for a post
   - Calls `increment_blog_stat` RPC on interaction
 
 #### 2.4.3 Project Components
 
-- [ ] **2.4.3a** Port `ProductCard` from `lib/widgets/product-card.js`:
+- [x] **2.4.3a** Port `ProductCard` from `lib/widgets/product-card.js`:
   - Server Component
   - Props: `project: Project`
   - Renders: icon (SVG), title, description, tech stack badges, link
 
 #### 2.4.4 UI Components
 
-- [ ] **2.4.4a** Port `SolutionCard` from `lib/widgets/solution-card.js`
-- [ ] **2.4.4b** Port `CardSection` from `lib/widgets/card-section.js`
-- [ ] **2.4.4c** Port `FeaturedProduct` from `lib/widgets/featured-product.js`
-- [ ] **2.4.4d** Port `TechMarquee` from `lib/widgets/tech-marquee.js`
-- [ ] **2.4.4e** Port `ProcessSteps` from `lib/widgets/process-steps.js`
-- [ ] **2.4.4f** Port `Careers` from `lib/widgets/careers.js`
-- [ ] **2.4.4g** Create `ScrollReveal` — client component:
+- [x] **2.4.4a** Port `SolutionCard` from `lib/widgets/solution-card.js`
+- [x] **2.4.4b** Port `CardSection` from `lib/widgets/card-section.js`
+- [x] **2.4.4c** Port `FeaturedProduct` from `lib/widgets/featured-product.js`
+- [x] **2.4.4d** Port `TechMarquee` from `lib/widgets/tech-marquee.js`
+- [x] **2.4.4e** Port `ProcessSteps` from `lib/widgets/process-steps.js`
+- [x] **2.4.4f** Port `Careers` from `lib/widgets/careers.js`
+- [x] **2.4.4g** Create `ScrollReveal` — client component:
   ```typescript
   'use client'
 
