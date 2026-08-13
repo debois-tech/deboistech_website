@@ -2076,11 +2076,6 @@ body {
        column-gap:          1.5rem;
 }
 
-.gap-x-8 {
-  -moz-column-gap:          2rem;
-       column-gap:          2rem;
-}
-
 .gap-y-3 {
   row-gap:          0.75rem;
 }
