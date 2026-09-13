@@ -1,2 +1,9 @@
 node_modules/
 css/output.css
+
+# Next.js app (deboistech-next/) — kept at the repo root so these stay
+# ignored on every branch, including ones that predate the migration.
+.next/
+next-env.d.ts
+.env*
+*.tsbuildinfo

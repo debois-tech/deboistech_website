@@ -1,3 +1,33 @@
 import Link from "next/link";
-export interface Solution { title: string; problem: string; solution: string; ctaLabel?: string; link?: string; iconSvg?: string; }
-export function SolutionCard({ item }: { item: Solution }) { return <div className="svc-card"><div className="svc-card__header">{item.iconSvg && <div className="svc-card__icon-wrap"><svg className="svc-card__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" dangerouslySetInnerHTML={{ __html: item.iconSvg }} /></div>}<h3 className="svc-card__title">{item.title}</h3></div><div className="svc-card__divider" /><p className="svc-card__problem">{item.problem}</p><p className="svc-card__solution"><span className="svc-card__arrow">→</span> {item.solution}</p><Link href={item.link ?? "/contact"} className="svc-card__cta">{item.ctaLabel ?? "Talk to us"} →</Link></div>; }
+import type { Service } from "@/lib/content";
+import { Icon } from "@/components/ui/icon";
+
+export function SolutionCard({
+  item,
+  ctaHref = "/contact",
+}: {
+  item: Service;
+  ctaHref?: string;
+}) {
+  return (
+    <div className="svc-card">
+      <div className="svc-card__header">
+        <div className="svc-card__icon-wrap">
+          <Icon d={item.iconPath} className="svc-card__icon" />
+        </div>
+        <h3 className="svc-card__title">{item.title}</h3>
+      </div>
+      <div className="svc-card__divider" />
+      <p className="svc-card__problem">{item.problem}</p>
+      <p className="svc-card__solution">
+        <span className="svc-card__arrow" aria-hidden="true">
+          &rarr;
+        </span>{" "}
+        {item.solution}
+      </p>
+      <Link href={ctaHref} className="svc-card__cta">
+        {item.ctaLabel} &rarr;
+      </Link>
+    </div>
+  );
+}

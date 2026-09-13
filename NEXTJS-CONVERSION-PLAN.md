@@ -993,44 +993,59 @@ Each component should be ported from the existing vanilla JS to a React componen
 
 **Goal**: Create all 9 route pages, mirroring the current site's content and structure.
 
+> **Status note (Aug 2026):** Phase 3 is complete. Two pages the original
+> plan missed were also ported, because they exist on the live static site:
+> **`/faq`** (from `lib/pages/faq.html` + `faq-accordion.js`) and
+> **`/privacy-policy`** (from `lib/pages/privacypolicy.html`). Two components
+> the plan also missed were built: `ui/faq-accordion.tsx` and
+> `ui/service-tiers.tsx` (the tier tabs from `services-section.js`).
+>
+> All hardcoded editorial data now lives in **`src/lib/content.ts`** rather
+> than being inlined per component, so copy changes happen in one file.
+>
+> Blog and studio routes that require Supabase (`/studio`, `/auth`) are
+> intentionally **not** built yet — see Phases 4–6.
+
 ### Page Creation Order (dependencies first)
 
-- [ ] **3.1 — Home page**: `src/app/page.tsx`
+- [x] **3.1 — Home page**: `src/app/page.tsx`
   - Server Component
   - Fetches featured projects + published blog posts via queries
   - Sections in order: Hero (hardcoded) → FeaturedProduct → TechMarquee → CardSection(solutions, hardcoded) → CardSection(products, from Supabase) → CardSection(blog previews, from Supabase) → ProcessSteps → TeamSection (hardcoded) → ContactForm
   - Export `generateMetadata()` for SEO
 
-- [ ] **3.2 — Services page**: `src/app/services/page.tsx`
+- [x] **3.2 — Services page**: `src/app/services/page.tsx`
   - Server Component, fully hardcoded data
   - Grid of service offerings with icons
 
-- [ ] **3.3 — Products page**: `src/app/products/page.tsx`
+- [x] **3.3 — Products page**: `src/app/products/page.tsx`
   - Server Component
   - Fetches all projects from Supabase via `getProjects()`
   - Grid of `ProductCard` components
 
-- [ ] **3.4 — About page**: `src/app/about/page.tsx`
+- [x] **3.4 — About page**: `src/app/about/page.tsx`
   - Server Component, hardcoded company info + what-we-do cards + CTA
 
-- [ ] **3.5 — Blog listing page**: `src/app/blogs/page.tsx`
+- [x] **3.5 — Blog listing page**: `src/app/blogs/page.tsx`
   - Server Component
   - Fetches published posts grouped by domain via `getPublishedPosts()`
   - Uses `BlogSections` component
 
-- [ ] **3.6 — Blog detail page**: `src/app/blogs/[slug]/page.tsx`
+- [x] **3.6 — Blog detail page**: `src/app/blogs/[slug]/page.tsx`
   - Server Component with `export async function generateMetadata()`
   - Fetches post via `getPostBySlug(slug)` + stats via `getPostStats()`
   - If not found, calls `notFound()`
   - Uses `BlogDetail` client component for the interactive article
   - `generateMetadata` reads post title/description for SEO
 
-- [ ] **3.7 — Contact page**: `src/app/contact/page.tsx`
+- [x] **3.7 — Contact page**: `src/app/contact/page.tsx`
   - Client Component (form handling)
   - Either POST to FormSubmit.io (keep existing) or use `lib/actions/contact.ts` Server Action
   - Contact form with name, email, subject, message fields
 
-- [ ] **3.8 — Careers page**: `src/app/careers/page.tsx`
+- [x] **3.8 — Careers page**: `src/app/careers/page.tsx`
+- [x] **3.9 — FAQ page** (not in the original plan): `src/app/faq/page.tsx`
+- [x] **3.10 — Privacy Policy page** (not in the original plan): `src/app/privacy-policy/page.tsx`
   - Server Component, hardcoded open roles listing
   - Uses `Careers` component
 
@@ -1244,7 +1259,16 @@ export async function GET(request: Request) {
 }
 ```
 
-- [ ] **5.4** Create `src/middleware.ts` — route protection + session refresh:
+- [ ] **5.4** Create `src/proxy.ts` — route protection + session refresh:
+
+> ⚠️ **Next.js 16 breaking change:** the `middleware` file convention is
+> deprecated and renamed to **`proxy`**. Name the file `src/proxy.ts` and the
+> export `proxy` (not `middleware`). The `edge` runtime is not supported in
+> `proxy` — it always runs on `nodejs`. Config flags were renamed too
+> (e.g. `skipMiddlewareUrlNormalize` → `skipProxyUrlNormalize`). The helper at
+> `src/lib/supabase/middleware.ts` is just a module, not the convention file,
+> so its name is fine to keep. The code block below still says `middleware` —
+> rename both the file and the function when implementing Phase 5.
 
 ```typescript
 import { updateSession } from '@/lib/supabase/middleware'
@@ -1409,7 +1433,18 @@ export const config = {
 
 **Goal**: Full SEO metadata, sitemap, RSS feed, error pages, loading states.
 
-- [ ] **9.1** Add `generateMetadata()` to all pages:
+> **Status note (Aug 2026):** Phase 9 is complete, plus two additions:
+> `src/app/robots.ts` and FAQPage JSON-LD on `/faq`. `metadataBase` is set
+> in the root layout so every relative canonical/OG URL resolves absolutely.
+>
+> **Soft-404 caveat (documented Next.js behaviour, not a bug):** `/blogs/<missing>`
+> returns HTTP **200** with the 404 UI, because dynamic routes stream and the
+> status cannot change after headers are sent. Next.js injects
+> `<meta name="robots" content="noindex">`, which is what prevents indexation —
+> verified present. If a hard 404 status is ever needed for analytics or
+> compliance, do the slug existence check in `proxy.ts` and rewrite there.
+
+- [x] **9.1** Add `generateMetadata()` to all pages:
 
 | Page | Dynamic Fields |
 |---|---|
@@ -1422,7 +1457,7 @@ export const config = {
 | `/contact` | Static: "Contact — deboistech" |
 | `/careers` | Static: "Careers — deboistech" |
 
-- [ ] **9.2** Create `src/app/sitemap.ts`:
+- [x] **9.2** Create `src/app/sitemap.ts`:
 
 ```typescript
 import type { MetadataRoute } from 'next'
@@ -1465,7 +1500,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 }
 ```
 
-- [ ] **9.3** Create `src/app/feed.xml/route.ts` — RSS feed:
+- [x] **9.3** Create `src/app/feed.xml/route.ts` — RSS feed:
 
 ```typescript
 import { getPublishedPosts } from '@/lib/queries/blog'
@@ -1502,20 +1537,23 @@ export async function GET() {
 }
 ```
 
-- [ ] **9.4** Create `src/app/not-found.tsx` — custom 404 page
+- [x] **9.4** Create `src/app/not-found.tsx` — custom 404 page
   - Server Component, styled to match site theme
   - "Page not found" message + link to home
 
-- [ ] **9.5** Create `src/app/blogs/loading.tsx`:
+- [x] **9.5** Create `src/app/blogs/loading.tsx`:
   - Skeleton grid of 6 placeholder cards (pulsing grey boxes)
 
-- [ ] **9.6** Create `src/app/blogs/[slug]/loading.tsx`:
+- [x] **9.6** Create `src/app/blogs/[slug]/loading.tsx`:
   - Skeleton article layout (title bar, content blocks, stats bar)
 
-- [ ] **9.7** Create `src/app/error.tsx`:
+- [x] **9.7** Create `src/app/error.tsx`:
   - Client Component with `'use client'`
   - Shows error message + "Try again" button
-  - Wraps the app in error boundary
+  - **Next.js 16:** the recovery prop is `unstable_retry`, not `reset`
+
+- [x] **9.8** Create `src/app/robots.ts` (addition) — disallows `/studio` and `/auth`
+- [x] **9.9** FAQPage JSON-LD on `/faq` (addition) — supports the GEO claims in the FAQ copy
 
 ---
 
