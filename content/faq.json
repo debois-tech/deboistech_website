@@ -1,0 +1,143 @@
+[
+  {
+    "q": "What services does deboistech provide?",
+    "a": "We provide end-to-end technology solutions, including:",
+    "bullets": [
+      "Website Development",
+      "Mobile App Development",
+      "Custom Software Development",
+      "AI & Machine Learning Solutions",
+      "ERP Development",
+      "CRM Development",
+      "UI/UX Design",
+      "Graphic Design & Branding",
+      "SEO Services",
+      "GEO (Generative Engine Optimization)",
+      "DevOps & Cloud Solutions",
+      "SaaS Product Development",
+      "API Development & Integrations",
+      "Website Maintenance & Support"
+    ],
+    "showOnAbout": true
+  },
+  {
+    "q": "Is deboistech a software company or a digital agency?",
+    "a": "deboistech is a technology company that combines software engineering, product development, cloud technologies, AI, and creative design services. We work with startups, SMEs, educational institutions, and enterprises to build scalable digital products and business solutions.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Where is deboistech located?",
+    "a": "deboistech is based in Nashik, Maharashtra, and serves clients across India and internationally through remote collaboration and online project delivery.",
+    "bullets": [],
+    "showOnAbout": true
+  },
+  {
+    "q": "Do you work with clients outside Nashik?",
+    "a": "Yes. Although we are headquartered in Nashik, we work with businesses, startups, educational institutions, and organizations across India and overseas.",
+    "bullets": [],
+    "showOnAbout": true
+  },
+  {
+    "q": "Why should I choose deboistech?",
+    "a": "We focus on understanding business problems before writing code. Our team combines technical expertise, modern technologies, user-centric design, and scalable architecture to deliver reliable digital solutions tailored to each client's goals.",
+    "bullets": [],
+    "showOnAbout": true
+  },
+  {
+    "q": "Can deboistech build a website for my business?",
+    "a": "Yes. We design and develop business websites, corporate websites, portfolio websites, eCommerce stores, educational platforms, landing pages, and custom web applications optimized for performance, SEO, and user experience.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Do you develop mobile applications?",
+    "a": "Yes. We develop Android, iOS, and cross-platform mobile applications tailored to your business requirements using modern development frameworks.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Do you build custom software?",
+    "a": "Yes. We specialize in developing custom software solutions for businesses, including internal management systems, automation tools, customer portals, and enterprise applications.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Does deboistech develop ERP and CRM systems?",
+    "a": "Yes. We develop customized ERP and CRM solutions that help businesses manage operations, inventory, customers, sales, employees, finance, and reporting efficiently.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Do you provide AI development services?",
+    "a": "Yes. We build AI-powered applications, intelligent automation solutions, chatbots, document processing systems, recommendation engines, and machine learning solutions for businesses.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Can you redesign my existing website?",
+    "a": "Absolutely. We can redesign outdated websites to improve visual appearance, mobile responsiveness, speed, SEO performance, accessibility, and user experience.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Do you provide UI/UX and graphic design services?",
+    "a": "Yes. Our design services include UI/UX design, branding, logo design, marketing creatives, social media graphics, presentations, and complete brand identity design.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "What industries do you work with?",
+    "a": "We work with startups, educational institutions, healthcare organizations, manufacturing companies, retail businesses, hospitality, logistics, professional services, and many other industries.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Do you provide SEO services?",
+    "a": "Yes. We help businesses improve their online visibility through technical SEO, on-page optimization, local SEO, content strategy, website performance optimization, and search engine best practices.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "What is GEO (Generative Engine Optimization)?",
+    "a": "Generative Engine Optimization (GEO) focuses on making your business and content discoverable by AI-powered search experiences like ChatGPT, Google AI Overviews, Gemini, and other AI assistants through structured, authoritative, and helpful content.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Can deboistech help my business appear in AI search results?",
+    "a": "Yes. We create AI-friendly content, structured website architecture, FAQ sections, schema markup, knowledge content, and technical optimizations that improve the likelihood of your business being surfaced in AI-generated answers.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "How long does a typical project take?",
+    "a": "Project timelines depend on complexity. Simple websites may take a few weeks, while custom software, mobile applications, or enterprise solutions may require several months. A detailed timeline is shared before development begins.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Do you offer website maintenance after launch?",
+    "a": "Yes. We provide ongoing maintenance, security updates, performance optimization, backups, feature enhancements, and technical support after your project goes live.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "How can I get a quote?",
+    "a": "Simply contact us with your project requirements. After understanding your goals, features, and timeline, we'll provide a customized proposal and estimate.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Do you work with startups?",
+    "a": "Yes. We enjoy partnering with startups from the idea stage through product design, MVP development, scaling, and long-term technical support.",
+    "bullets": [],
+    "showOnAbout": false
+  },
+  {
+    "q": "Can I schedule a consultation before starting a project?",
+    "a": "Absolutely. We offer consultations to understand your business requirements, discuss possible solutions, recommend the right technology stack, and help you plan your project.",
+    "bullets": [],
+    "showOnAbout": false
+  }
+]

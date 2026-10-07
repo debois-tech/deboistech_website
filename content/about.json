@@ -1,0 +1,52 @@
+{
+  "capabilities": [
+    {
+      "title": "IT Solutions",
+      "description": "Custom software, web apps, cloud infrastructure, automation, integrations, and support for growing businesses."
+    },
+    {
+      "title": "ERP-Grade Products",
+      "description": "Workflow platforms, admin systems, dashboards, billing flows, CRM modules, and operations tools built with enterprise discipline."
+    },
+    {
+      "title": "Open-Source Products",
+      "description": "Reusable engineering assets and public products that improve transparency, developer adoption, and long-term maintainability."
+    },
+    {
+      "title": "Industrial Training Programs",
+      "description": "Project-led training in software development, cloud, DevOps, full-stack engineering, and production-ready team workflows."
+    }
+  ],
+  "team": [
+    {
+      "name": "Omkar Kokane",
+      "role": "CEO",
+      "image": "/images/employee/omkar.jpeg",
+      "linkedin": "https://www.linkedin.com/in/omkar-kokane/"
+    },
+    {
+      "name": "Aditya Bankar",
+      "role": "CTO",
+      "image": "/images/employee/aditya.PNG",
+      "linkedin": "https://www.linkedin.com/in/adityabankar21/"
+    },
+    {
+      "name": "Yash Pawar",
+      "role": "DevOps Engineer",
+      "image": "/images/employee/yash.jpeg",
+      "linkedin": "https://www.linkedin.com/in/yash-pawar-862702287/"
+    },
+    {
+      "name": "Vedant Wagh",
+      "role": "Software Development Engineer",
+      "image": "/images/employee/vedant.jpeg",
+      "linkedin": "https://www.linkedin.com/in/vedantwagh1405/"
+    },
+    {
+      "name": "Sakshi Dhatrak",
+      "role": "ML Engineer",
+      "image": "/images/employee/sakshi.jpeg",
+      "linkedin": "https://www.linkedin.com/in/sakshidhatrak/"
+    }
+  ]
+}
