@@ -1,0 +1,10 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Fully static site: `next build` writes plain HTML/CSS/JS to ./out.
+  output: "export",
+  // next/image's default optimizer needs a server.
+  images: { unoptimized: true },
+};
+
+export default nextConfig;
